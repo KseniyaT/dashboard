@@ -1,0 +1,11 @@
+<button
+  mat-icon-button
+  class="icon-button"
+  [matTooltip]="tooltip"
+  (click)="onClick()"
+  [attr.aria-label]="ariaLabel"
+  [class.active]="isActive"
+  [disabled]="disabled"
+>
+  <mat-icon>{{ isActive ? activeIcon : defaultIcon }}</mat-icon>
+</button>

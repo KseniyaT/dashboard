@@ -1,0 +1,96 @@
+@import './variables';
+@import './mixins';
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: $color-primary;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
+}
+
+// Typography - using Material classes
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-md;
+}
+
+// Links - using Material styles
+a {
+  text-decoration: none;
+  @include transition(color);
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// Lists - using Material styles
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-lg;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// Buttons - using Material styles
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+// Form elements - using Material styles
+input, textarea {
+  font-family: inherit;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+// Common utility classes
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mb-sm {
+  margin-bottom: $spacing-sm;
+}
+
+.mb-md {
+  margin-bottom: $spacing-md;
+}
+
+.mb-lg {
+  margin-bottom: $spacing-lg;
+}
+
+.mt-sm {
+  margin-top: $spacing-sm;
+}
+
+.mt-md {
+  margin-top: $spacing-md;
+}
+
+.mt-lg {
+  margin-top: $spacing-lg;
+} 

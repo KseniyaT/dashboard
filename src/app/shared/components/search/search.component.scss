@@ -1,0 +1,51 @@
+@import 'variables';
+@import 'mixins';
+
+.search-container {
+  @include container;
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: $spacing-sm;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: $spacing-lg;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-field {
+  width: 100%;
+}
+
+.selected-item {
+  margin-top: $spacing-lg;
+}
+
+.item-text {
+  margin-bottom: $spacing-sm;
+}
+
+.item-date {
+  @include text-style($font-size-small, $color-secondary);
+}
+
+::ng-deep {
+  .mat-mdc-autocomplete-panel {
+    max-height: 300px !important;
+  }
+  
+  .mat-mdc-option {
+    height: auto !important;
+    line-height: $line-height-base !important;
+    padding: $spacing-sm !important;
+  }
+
+  // Hide empty subscript wrapper
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+} 

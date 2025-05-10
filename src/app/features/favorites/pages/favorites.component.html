@@ -1,0 +1,54 @@
+<div class="favorites-container">
+  <h1 aria-live="polite">
+    {{ allFavorites.length }} Favorite Fact{{ allFavorites.length !== 1 ? 's' : '' }}
+  </h1>
+
+  @if (allFavorites.length === 0) {
+    <div class="no-favorites">
+      <p>No favorite facts yet. Add some facts to your favorites!</p>
+    </div>
+  } @else {
+    <div>
+      <div class="search-sort-container">
+        <app-search
+          [items]="allFavorites"
+          displayField="text"
+          placeholder="Search in favorites..."
+          (search)="onSearch($event)"
+          (itemSelected)="onItemSelected($event)"
+          aria-label="Search in favorites"
+        >
+        </app-search>
+        <app-sort-button
+          sortField="Date added"
+          [currentDirection]="currentSortDirection"
+          (sortChange)="onSort($event)"
+          [disabled]="isItemSelected"
+        ></app-sort-button>
+      </div>
+
+      <div class="favorites-list" role="list" aria-label="List of favorite facts">
+        <app-fact-card
+          *ngFor="let fact of displayedFavorites"
+          [id]="'fact-' + fact.id"
+          [fact]="fact"
+          [isFavorite]="true"
+          [showFavoriteButton]="false"
+          [showDeleteButton]="true"
+          (deleteClick)="removeFromFavorites($event)"
+          role="listitem"
+        >
+        </app-fact-card>
+      </div>
+    </div>
+  }
+
+  @if (isLoading) {
+    <div class="loading" role="status" aria-live="polite">
+      <mat-spinner
+        [diameter]="LOADING_SPINNER_DIAMETER"
+        aria-label="Loading favorites"
+      ></mat-spinner>
+    </div>
+  }
+</div>

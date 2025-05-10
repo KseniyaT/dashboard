@@ -1,0 +1,14 @@
+<div class="sort-button__container" [class.disabled]="disabled">
+  <app-icon-button
+    [tooltip]="'Sort by ' + sortField"
+    [ariaLabel]="'Sort by ' + sortField"
+    [defaultIcon]="'arrow_downward'"
+    [activeIcon]="'arrow_upward'"
+    [isActive]="currentDirection === 'asc'"
+    [disabled]="disabled"
+    (buttonClick)="onSort()"
+    [class.sort-button__icon]="true"
+    [class.sort-button__icon--asc]="currentDirection === 'asc'"
+    [class.sort-button__icon--desc]="currentDirection === 'desc'"
+  ></app-icon-button>
+</div>

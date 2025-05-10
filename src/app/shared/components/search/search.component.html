@@ -1,0 +1,33 @@
+<div class="search-container">
+  <form class="search-form" (ngSubmit)="onSearch()">
+    <mat-form-field class="search-field" appearance="outline">
+      <mat-label>Search facts</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="searchControl"
+        [matAutocomplete]="auto"
+        name="search"
+      />
+      @if (searchText) {
+        <button
+          matSuffix
+          mat-icon-button
+          type="button"
+          (click)="clearSearch()"
+          aria-label="Clear search"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onItemSelected($event)">
+        <mat-option *ngFor="let item of filteredItems" [value]="item.text">
+          {{ item.text }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+@if (filteredItems.length === 0 && searchText) {
+  <div class="no-results">No matches found</div>
+}

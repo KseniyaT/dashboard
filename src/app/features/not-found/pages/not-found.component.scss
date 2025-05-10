@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'mixins';
+
+.not-found-container {
+  @include flex(column, center, center);
+  min-height: 60vh;
+  text-align: center;
+  padding: $spacing-xl;
+
+  h1 {
+    font-size: 6rem;
+    margin: 0;
+    color: $color-primary;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin: $spacing-md 0;
+    color: $color-secondary;
+  }
+
+  p {
+    font-size: $font-size-large;
+    color: $color-text;
+    margin-bottom: $spacing-xl;
+  }
+} 

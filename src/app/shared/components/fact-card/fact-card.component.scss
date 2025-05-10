@@ -1,0 +1,45 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.fact-card {
+  margin-top: 1rem;
+  width: 100%;
+
+  mat-card {
+    width: 100%;
+  }
+
+  mat-card-content {
+    width: 100%;
+  }
+}
+
+.fact-card-row {
+  @include flex(row, flex-start, space-between, 1rem);
+  width: 100%;
+}
+
+.fact-content {
+  @include flex(column, flex-start, flex-start, $spacing-sm);
+  flex: 1;
+  width: 100%;
+}
+
+.fact-text {
+  @include text-style($font-size-large, $color-primary);
+  margin: 0;
+}
+
+.fact-date {
+  @include text-style($font-size-small, $color-secondary);
+  margin-bottom: 0;
+}
+
+.fact-actions {
+  @include flex(row, flex-start, flex-start, $spacing-sm);
+}

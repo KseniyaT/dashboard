@@ -1,0 +1,33 @@
+@import 'variables';
+
+.icon-button {
+  border-radius: 4px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  border: 1px solid $color-border;
+  padding: 11px;
+  overflow: hidden;
+
+  ::ng-deep {
+    .mat-mdc-icon-button {
+      padding: 11px;
+      border-radius: 4px;
+    }
+
+    .mat-mdc-button-persistent-ripple {
+      border-radius: 4px;
+    }
+  }
+
+  .mat-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.04);
+    
+    .mat-icon {
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+} 

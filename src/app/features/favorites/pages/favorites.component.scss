@@ -1,0 +1,62 @@
+@import 'variables';
+@import 'mixins';
+
+.favorites-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+
+  h1 {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.no-favorites {
+  text-align: center;
+  padding: $spacing-xl;
+}
+
+.search-sort-container {
+  @include flex(row, center, space-between, $spacing-sm);
+  width: 100%;
+
+  app-search {
+    flex: 1;
+  }
+}
+
+.favorites-list {
+  @include flex(column, flex-start, stretch, $spacing-sm);
+  width: 100%;
+}
+
+.favorite-card {
+  width: 100%;
+  @include flex(column, flex-start, stretch, $spacing-sm);
+}
+
+.fact-card {
+  width: 100%;
+
+  .fact-card-row {
+    @include flex(row, flex-start, space-between, $spacing-md);
+  }
+
+  .fact-text {
+    margin-bottom: $spacing-sm;
+  }
+
+  mat-card-actions {
+    position: static;
+    top: auto;
+    right: auto;
+    padding: 0;
+    margin: 0;
+    align-self: flex-start;
+  }
+}
+
+.loading {
+  @include flex(row, center, center);
+  padding: $spacing-lg;
+} 

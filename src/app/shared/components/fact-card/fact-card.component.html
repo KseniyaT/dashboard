@@ -1,0 +1,33 @@
+<mat-card class="fact-card">
+  <mat-card-content>
+    <div class="fact-card-row">
+      <div class="fact-content">
+        <p class="fact-text">{{ fact.text }}</p>
+        @if (showDate) {
+          <p class="fact-date" aria-label="Added on">{{ fact.createdAt | date: 'medium' }}</p>
+        }
+      </div>
+      <div class="fact-actions" role="group" aria-label="Fact actions">
+        @if (showFavoriteButton) {
+          <app-icon-button
+            [isActive]="isFavorite"
+            [tooltip]="isFavorite ? 'Remove from favorites' : 'Save to favorites'"
+            [ariaLabel]="'Toggle favorite status'"
+            [defaultIcon]="'favorite_border'"
+            [activeIcon]="'favorite'"
+            (buttonClick)="onFavoriteClick()"
+          ></app-icon-button>
+        }
+        @if (showDeleteButton) {
+          <app-icon-button
+            [tooltip]="'Remove from favorites'"
+            [ariaLabel]="'Remove from favorites'"
+            [defaultIcon]="'delete'"
+            [activeIcon]="'delete'"
+            (buttonClick)="onDeleteClick()"
+          ></app-icon-button>
+        }
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

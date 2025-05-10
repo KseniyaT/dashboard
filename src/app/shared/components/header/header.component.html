@@ -1,0 +1,23 @@
+<header>
+  <mat-toolbar color="primary" role="banner">
+    <a routerLink="/" class="app-title">Random Facts App</a>
+    <span class="spacer"></span>
+    <nav aria-label="Main navigation">
+      <a
+        mat-button
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        aria-label="Go to home page"
+        >Home</a
+      >
+      <a
+        mat-button
+        routerLink="/favorites"
+        routerLinkActive="active"
+        aria-label="Go to favorites page"
+        >Favorites</a
+      >
+    </nav>
+  </mat-toolbar>
+</header>

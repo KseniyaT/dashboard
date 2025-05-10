@@ -1,0 +1,38 @@
+<div
+  class="random-fact-container"
+  role="region"
+  aria-label="Random fact"
+  [attr.aria-busy]="isLoading"
+>
+  @if (isLoading) {
+    <div class="loading" role="status" aria-live="polite">Loading fact...</div>
+  } @else if (error) {
+    <div class="error" role="alert" aria-live="assertive">
+      {{ error }}
+      <button mat-raised-button color="primary" (click)="getNewFact()" aria-label="Try again">
+        Try Again
+      </button>
+    </div>
+  } @else if (currentFact) {
+    <div class="fact-content">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="getNewFact()"
+        aria-label="Get new fact"
+        class="new-fact-button"
+      >
+        <span class="mdc-button__label">Get New Fact</span>
+        <mat-icon class="refresh-icon" aria-hidden="true">refresh</mat-icon>
+      </button>
+
+      <app-fact-card
+        [fact]="currentFact"
+        [isFavorite]="isFavorite()"
+        [showDate]="false"
+        (favoriteClick)="isFavorite() ? removeFromFavorites() : saveToFavorites()"
+      >
+      </app-fact-card>
+    </div>
+  }
+</div>
